@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="一份藏在银河里的私人回忆册，给最特别的人慢慢翻看。"
+    />
+    <title>给你的星河回忆册</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="memory-locked">
+    <div class="cosmos" aria-hidden="true">
+      <div class="stars stars-one"></div>
+      <div class="stars stars-two"></div>
+      <div class="galaxy"></div>
+      <div class="aurora aurora-one"></div>
+      <div class="aurora aurora-two"></div>
+    </div>
+
+    <main class="app" aria-live="polite">
+      <section id="coverScreen" class="cover-screen">
+        <div class="cover-orbit" aria-hidden="true"></div>
+        <p class="eyebrow">A little universe for us</p>
+        <h1 id="coverTitle">给你的星河回忆册</h1>
+        <p id="coverSubtitle" class="cover-subtitle">慢慢翻，里面都是我们。</p>
+        <a id="openBook" class="primary-button" href="#bookScreen" role="button">
+          <span>打开</span>
+        </a>
+      </section>
+
+      <section id="bookScreen" class="book-screen is-hidden" aria-label="星河回忆册">
+        <div class="book-shell">
+          <div class="book-page" id="bookPage">
+            <div class="page-copy">
+              <p id="pageKicker" class="page-kicker"></p>
+              <h2 id="pageTitle"></h2>
+              <p id="pageText"></p>
+            </div>
+            <div id="photoGrid" class="photo-grid" aria-label="照片"></div>
+          </div>
+        </div>
+
+        <div class="book-controls" aria-label="翻页控制">
+          <button id="prevPage" class="nav-button" type="button" aria-label="上一页">
+            ←
+          </button>
+          <div class="page-status">
+            <span id="pageCounter"></span>
+            <div id="progressDots" class="progress-dots" aria-hidden="true"></div>
+          </div>
+          <button id="nextPage" class="nav-button" type="button" aria-label="下一页">
+            →
+          </button>
+        </div>
+      </section>
+    </main>
+
+    <script src="data/memories.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
