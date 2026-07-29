@@ -90,6 +90,21 @@
     });
   }
 
+  function preloadNearbyImages() {
+    [currentPage - 1, currentPage + 1].forEach((pageIndex) => {
+      const page = pages[pageIndex];
+      if (!page || !Array.isArray(page.photos)) {
+        return;
+      }
+
+      page.photos.forEach((photo) => {
+        const normalized = normalizePhoto(photo);
+        const image = new Image();
+        image.src = normalized.src;
+      });
+    });
+  }
+
   function renderPage() {
     if (!pages.length) {
       setText(pageTitle, "还没有写入回忆");
@@ -126,6 +141,7 @@
     prevPage.disabled = currentPage === 0;
     nextPage.disabled = currentPage === pages.length - 1;
     renderProgress();
+    preloadNearbyImages();
   }
 
   function animatePageTurn() {
